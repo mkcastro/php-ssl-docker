@@ -4,9 +4,11 @@ services:
 
   php-apache-environment:
     container_name: php-apache
-    build:
-      dockerfile: ./.docker/php/Dockerfile
+    build: ./
     volumes:
+      - ./mycert.crt:/etc/ssl/certs/mycert.crt
+      - ./mycert.key:/etc/ssl/private/mycert.key
       - ./public:/var/www/html
     ports:
       - 8000:80
+      - 8443:443
