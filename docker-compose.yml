@@ -6,8 +6,6 @@ services:
     container_name: php-apache
     build:
       dockerfile: ./.docker/php/Dockerfile
-    depends_on:
-      - db
     volumes:
       - ./public:/var/www/html
     ports:
