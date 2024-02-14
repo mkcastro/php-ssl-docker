@@ -16,17 +16,23 @@ You need to have Docker installed on your machine. You can download Docker from 
 
 2. Navigate to the project directory.
 
-3. Build the Docker image:
+3. Generate SSL keys:
 
-\```sh
+```sh
+openssl req -x509 -new -out mycert.crt -keyout mycert.key -days 365 -newkey rsa:4096 -sha256 -nodes
+```
+
+4. Build the Docker image:
+
+```sh
 docker-compose build
-\```
+```
 
-4. Run the Docker container:
+5. Run the Docker container:
 
-\```sh
+```sh
 docker-compose up
-\```
+```
 
 The application will be accessible at `https://localhost:8443`.
 
